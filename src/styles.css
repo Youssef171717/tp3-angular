@@ -1,0 +1,4 @@
+/* Thème football : fond vert pelouse clair */
+body { background-color: #eef7ee; }
+.navbar-brand { font-weight: 700; letter-spacing: .5px; }
+.card-header { font-weight: 600; }

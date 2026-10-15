@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-header text-white bg-success">
+      <h4 class="mb-0">⚽ Les 5 grands championnats</h4>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr><th>N°</th><th>Id</th><th>Nom</th><th>Pays</th><th>Clubs</th><th>Date de création</th><th></th><th></th></tr>
+        </thead>
+        <tbody>
+          @for (ligue of ligues; track ligue.idLigue; let index = $index; let nbr = $count; let first = $first)
+          {
+            @if (first) { <caption class="caption-top">Nombre de ligues : {{nbr}}</caption> }
+            <tr>
+              <td>{{index}}</td>
+              <td>{{ligue.idLigue}}</td>
+              <td>{{ligue.nomLigue}}</td>
+              <td>{{ligue.pays}}</td>
+              <td>{{ligue.nbClubs}}</td>
+              <td>{{ligue.dateCreation | date:'dd/MM/yyyy'}}</td>
+              <td><a class="btn btn-danger btn-sm" (click)="supprimerLigue(ligue)">Supprimer</a></td>
+              <td><a class="btn btn-success btn-sm" [routerLink]="['/updateLigue', ligue.idLigue]">Modifier</a></td>
+            </tr>
+          }
+          @empty {
+            <tr><td colspan="8"><h5>Aucune ligue trouvée !</h5></td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
